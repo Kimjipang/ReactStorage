@@ -1,22 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-function NavCSS() {
+const Nav = () => {
   return (
-    <div>
-      <MyNav>
-        <h4>메뉴1</h4>
-        <h4>메뉴2</h4>
-        <h4>메뉴3</h4>
-        <h4>메뉴4</h4>
-      </MyNav>
-    </div>
+    <MyNav>
+      <div>
+        <NavLink to="/">Home</NavLink>
+      </div>
+      <div>
+        <NavLink to="/login">Sign In</NavLink>
+      </div>
+      <div>
+        <NavLink to="/signup">Sign Up</NavLink>
+      </div>
+      <div>
+        <NavLink to="/workspace">MY Workspace</NavLink>
+      </div>
+    </MyNav>
   );
-}
-export default NavCSS;
+};
+export default Nav;
 
 const MyNav = styled.nav`
-  background-color: black;
+  background-color: royalblue;
   width: 100%;
   color: white;
   display: flex;
