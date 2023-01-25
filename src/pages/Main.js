@@ -3,30 +3,39 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
-import NavCSS from "./Nav";
+import Nav from "./Nav";
 
 function Main() {
   const [text, setText] = useState([]);
-  const [login, setLogin] = useState(false);
 
-  const isLogin = () => {
-    setLogin(true);
-  };
   const navigate = useNavigate();
 
   return (
     <>
-      <NavCSS />
+      <Nav />
       <BackGround>
         <div>
           <Header>메인 페이지</Header>
-
+          <StyleButton
+            onClick={() => {
+              navigate("/loginver02");
+            }}
+          >
+            Login 버전 2
+          </StyleButton>
+          <StyleButton
+            onClick={() => {
+              navigate("signup");
+            }}
+          >
+            Sign Up
+          </StyleButton>
           <StyleButton
             onClick={() => {
               navigate("/login");
             }}
           >
-            Login
+            Sign In
           </StyleButton>
 
           <StyleButton
@@ -101,12 +110,6 @@ const Header = styled.h1`
   color: royalblue;
   font-size: 50px;
   background-color: beige;
-`;
-
-const FootButton = styled.button`
-  width: 100px;
-  height: 50px;
-  margin-left: 5px;
 `;
 
 const NavBar = styled.nav`
