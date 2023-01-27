@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Container from "@mui/material/Container";
 
 function Login() {
   // 이메일, 비밀번호, 비밀번호 확인
@@ -19,7 +20,7 @@ function Login() {
   const navigate = useNavigate();
 
   return (
-    <BackGround>
+    <Container>
       <h1>Login</h1>
       <label>Email</label>
       <TextField
@@ -61,13 +62,14 @@ function Login() {
             })
             .catch(function (error) {
               console.log(error);
+              console.log("잘못된 유저 정보");
             });
         }}
       >
         {/* {" "} */}
         로그인
       </ButtonLogin>
-    </BackGround>
+    </Container>
   );
 }
 
@@ -88,7 +90,7 @@ const BackGround = styled.div`
 `;
 
 const ButtonLogin = styled.button`
-  background-color: #0095f6;
+  container-color: #0095f6;
   color: white;
   width: 268px;
   height: 30px;
