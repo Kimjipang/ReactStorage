@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import LoginVer02 from "./pages/LoginVer02";
+import LoginVer03 from "./pages/LoginVer03";
 import Workspace from "./pages/Workspace";
-import Loginver02 from "./pages/Loginver02";
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/loginver02" element={<LoginVer02 />} />
+          <Route path="/loginver03" element={<LoginVer03 />} />
           <Route path="/workspace" element={<Workspace />} />
-          <Route path="/loginver02" element={<Loginver02 />} />
         </Routes>
       </BrowserRouter>
     </div>
