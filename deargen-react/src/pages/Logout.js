@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Button from "@mui/material/Button";
 
 function Logout() {
-  const [logout, setLogout] = useState(false);
-
-  const isLogout = () => {
-    setLogout(true);
-  };
-  return;
+  localStorage.removeItem("access token");
 }
 
 export default Logout;
-const BackGround = styled.div`
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin-top: 200px;
-`;
