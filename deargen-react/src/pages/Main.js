@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
-import Nav from "./Nav";
+import Button from "@mui/material/Button";
+import Logout from "./Logout";
 
 function Main() {
   const [text, setText] = useState([]);
@@ -12,31 +13,45 @@ function Main() {
 
   return (
     <>
-      <Nav />
       <BackGround>
         <div>
           <Header>메인 페이지</Header>
-          <StyleButton
+
+          <Button
+            onClick={() => {
+              navigate("/signup");
+            }}
+            variant="outlined"
+          >
+            Sign Up
+          </Button>
+          <Button
             onClick={() => {
               navigate("/loginver02");
             }}
+            variant="outlined"
           >
-            Login 버전 2
-          </StyleButton>
-          <StyleButton
+            Sign In ver 02
+          </Button>
+          <Button
             onClick={() => {
-              navigate("signup");
+              navigate("/loginver03");
             }}
+            variant="outlined"
           >
-            Sign Up
-          </StyleButton>
-          <StyleButton
+            Sign in ver 03
+          </Button>
+          <Button onClick={Logout} variant="outlined">
+            Logout
+          </Button>
+          <Button
             onClick={() => {
-              navigate("/login");
+              navigate("/workspace");
             }}
+            variant="outlined"
           >
-            Sign In
-          </StyleButton>
+            Workspace
+          </Button>
 
           <StyleButton
             onClick={() => {
@@ -54,16 +69,6 @@ function Main() {
             {" "}
             유저 목록
           </StyleButton>
-          <NavBar>
-            <ul>
-              <li>
-                <a href="#">Workspace</a>
-              </li>
-              <li>
-                <a href="#">Project</a>
-              </li>
-            </ul>
-          </NavBar>
         </div>
         {text.map((e) => (
           <div>
