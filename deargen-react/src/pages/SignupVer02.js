@@ -12,72 +12,36 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Copyright from "./Copyright";
 import axios from "axios";
-import styled from "styled-components";
 
-function Signup() {
+function SignUpVer02() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [username, setUsername] = useState("");
-
-  //오류메시지 상태저장
-  const [emailMessage, setEmailMessage] = useState("");
-  const [passwordMessage, setPasswordMessage] = useState("");
-  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
+  const navigate = useNavigate();
 
   // 유효성 검사
-  const [isEmail, setIsEmail] = useState(false);
-  const [isPassword, setIsPassword] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-  const navigate = useNavigate();
 
   const onChangeUsername = (event) => {
     setUsername(event.target.value);
   };
 
   const onChangeEmail = (event) => {
-    const emailRegex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    const emailCurrent = event.target.value;
-    setEmail(emailCurrent);
-
-    if (!emailRegex.test(emailCurrent)) {
-      setEmailMessage("잘못된 이메일 형식입니다. ");
-      setIsEmail(false);
-    } else {
-      setEmailMessage("✅");
-      setIsEmail(true);
-    }
+    setEmail(event.target.value);
   };
 
-  // 비밀번호
   const onChangePassword = (event) => {
-    const passwordRegex =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    const passwordCurrent = event.target.value;
-    setPassword(passwordCurrent);
-
-    if (!passwordRegex.test(passwordCurrent)) {
-      setPasswordMessage(
-        "숫자+대소문자+특수문자 조합으로 8자리 이상 입력해주세요."
-      );
-    } else {
-      setPasswordMessage("✅");
-      setIsPassword(true);
-    }
+    setPassword(event.target.value);
   };
 
-  // 비밀번호 확인
   const onChangePasswordConfirm = (event) => {
-    const passwordComfirmCurrent = event.target.value;
-    setPasswordConfirm(passwordComfirmCurrent);
+    setPasswordConfirm(event.target.value);
 
-    if (password === passwordComfirmCurrent) {
-      setPasswordConfirmMessage("✅");
-      setIsPasswordConfirm(true);
+    if (password === passwordConfirm) {
+      console.log(true);
     } else {
-      setPasswordConfirmMessage("비밀번호가 일치하지 않습니다.");
-      setIsPasswordConfirm(false);
+      window.location.href("./");
     }
   };
 
@@ -145,7 +109,6 @@ function Signup() {
                   autoComplete="email"
                   onChange={onChangeEmail}
                 />
-                {email.length > 0 && <TextP>{emailMessage}</TextP>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -158,13 +121,6 @@ function Signup() {
                   autoComplete="new-password"
                   onChange={onChangePassword}
                 />
-                {password.length > 0 && (
-                  <TextP
-                    className={`message ${isPassword ? "success" : "error"}`}
-                  >
-                    {passwordMessage}
-                  </TextP>
-                )}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -177,15 +133,6 @@ function Signup() {
                   autoComplete="new-password"
                   onChange={onChangePasswordConfirm}
                 />
-                {passwordConfirm.length > 0 && (
-                  <TextP
-                    className={`message ${
-                      isPasswordConfirm ? "success" : "error"
-                    }`}
-                  >
-                    {passwordConfirmMessage}
-                  </TextP>
-                )}
               </Grid>
             </Grid>
             <Button
@@ -193,7 +140,6 @@ function Signup() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              disabled={!(isEmail && isPassword && isPasswordConfirm)}
             >
               Sign Up
             </Button>
@@ -212,9 +158,4 @@ function Signup() {
   );
 }
 
-export default Signup;
-
-const TextP = styled.p`
-  font-size: 15px;
-  margin-top: 0px;
-`;
+export default SignUpVer02;
