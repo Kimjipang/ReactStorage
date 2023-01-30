@@ -9,16 +9,17 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-// import Alert from "@mui/material/Alert";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Copyright from "./Copyright";
+import Swal from "sweetalert2";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState("false");
   const navigate = useNavigate();
 
   const onChangeEmail = (event) => {
@@ -27,6 +28,10 @@ function Login() {
   const onChangePassword = (event) => {
     setPassword(event.target.value);
   };
+  const onCheckLogin = () => {
+    setIsLogin(true);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -37,12 +42,22 @@ function Login() {
       .then(function (response) {
         console.log(response.data);
         localStorage.clear();
-        localStorage.setItem("id", response.data.user.id);
-        const name = response.data.user.username;
+        // localStorage.setItem("id", response.data.user.id);
         localStorage.setItem("access token", response.data.token.access);
         localStorage.setItem("refresh token", response.data.token.refresh);
         if (response.status === 200) {
-          alert("어서오세요! " + name + "님");
+          const name = response.data.user.username;
+          Swal.fire({
+            title: "어서오세요! " + name + "님",
+            icon: "success",
+            showClass: {
+              popup: "animate__animated animate__jackInTheBox",
+            },
+            hideClass: {
+              popup: "animate__animated animate__rollOut",
+            },
+            // confirmButtonText: "Cool",
+          });
           navigate("/");
         }
       })
