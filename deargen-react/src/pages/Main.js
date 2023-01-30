@@ -4,7 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
-import Logout from "./Logout";
+import Logout from "../features/logout";
+import Workspace from "./Workspace";
 
 function Main() {
   const [text, setText] = useState([]);
@@ -15,7 +16,7 @@ function Main() {
     <>
       <BackGround>
         <div>
-          <Header>메인 페이지</Header>
+          <Header>Dear DTI</Header>
 
           <Button
             onClick={() => {
@@ -27,21 +28,13 @@ function Main() {
           </Button>
           <Button
             onClick={() => {
-              navigate("/loginver02");
+              navigate("/login");
             }}
             variant="outlined"
           >
-            Sign In ver 02
+            Sign In
           </Button>
-          <Button
-            onClick={() => {
-              navigate("/loginver03");
-            }}
-            variant="outlined"
-          >
-            Sign in ver 03
-          </Button>
-          <Button onClick={Logout} variant="outlined">
+          <Button onClick={() => Logout()} variant="outlined">
             Logout
           </Button>
           <Button
@@ -98,7 +91,7 @@ const BackGround = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: 200px;
+  // margin-top: 100px;
 `;
 
 const StyleButton = styled.button`
