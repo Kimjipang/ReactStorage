@@ -3,47 +3,52 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PeopleIcon from "@mui/icons-material/People";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import LayersIcon from "@mui/icons-material/Layers";
+// import DashboardIcon from "@mui/icons-material/Dashboard";
+import HomeIcon from "@mui/icons-material/Home";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import LeaderboardIcon from "@mui/icons-material/Leaderboard";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import LogoutIcon from "@mui/icons-material/Logout";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import { useNavigate } from "react-router-dom";
+import logout from "../features/logout";
 
 export const MainListItems = () => {
   const navigate = useNavigate();
   return (
     <React.Fragment>
-      <ListItemButton onClick={() => navigate("/dashboard")}>
+      <ListItemButton onClick={() => navigate("/")}>
         <ListItemIcon>
-          <DashboardIcon />
+          <HomeIcon />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary="Main" />
       </ListItemButton>
+
       <ListItemButton>
         <ListItemIcon>
-          <ShoppingCartIcon />
+          <LaptopIcon />
         </ListItemIcon>
-        <ListItemText primary="Orders" />
+        <ListItemText primary="Project" />
       </ListItemButton>
+
       <ListItemButton>
         <ListItemIcon>
-          <PeopleIcon />
+          <NewspaperIcon />
         </ListItemIcon>
-        <ListItemText primary="Customers" />
+        <ListItemText primary="Job" />
       </ListItemButton>
+
       <ListItemButton>
         <ListItemIcon>
-          <BarChartIcon />
+          <LeaderboardIcon />
         </ListItemIcon>
         <ListItemText primary="Reports" />
       </ListItemButton>
-      <ListItemButton>
+      <ListItemButton onClick={() => logout()}>
         <ListItemIcon>
-          <LayersIcon />
+          <LogoutIcon />
         </ListItemIcon>
-        <ListItemText primary="Integrations" />
+        <ListItemText primary="Logout" />
       </ListItemButton>
     </React.Fragment>
   );
