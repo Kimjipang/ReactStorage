@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import Button from "@mui/material/Button";
 import Logout from "../features/logout";
 import "animate.css";
-import isConfirm from "../features/isConfirm";
+import Dashboard from "./Dashboard";
 
 function Workspace() {
   const navigate = useNavigate();
@@ -30,10 +30,7 @@ function Workspace() {
   return (
     token && (
       <div>
-        <Button onClick={Logout} variant="outlined">
-          Logout
-        </Button>
-        <h1>Workspace</h1>
+        <Dashboard />
       </div>
     )
   );
