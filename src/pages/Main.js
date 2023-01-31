@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
-import Logout from "../features/logout";
+import logout from "../features/logout";
 import Workspace from "./Workspace";
 
 function Main() {
@@ -34,7 +34,7 @@ function Main() {
           >
             Sign In
           </Button>
-          <Button onClick={() => Logout()} variant="outlined">
+          <Button onClick={() => logout()} variant="outlined">
             Logout
           </Button>
           <Button
