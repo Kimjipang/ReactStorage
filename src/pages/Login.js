@@ -35,16 +35,20 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/auth/", {
-        email: email,
-        password: password,
-      })
+      .post(
+        "http://127.0.0.1:8000/auth/",
+        {
+          email: email,
+          password: password,
+        }
+        // { withCredentials: false } // https://ssungkang.tistory.com/entry/React-axios-%EC%9D%98-withCredentials 참고
+      )
       .then(function (response) {
         console.log(response.data);
         localStorage.clear();
         // localStorage.setItem("id", response.data.user.id);
         localStorage.setItem("access token", response.data.token.access);
-        localStorage.setItem("refresh token", response.data.token.refresh);
+        // localStorage.setItem("refresh token", response.data.token.refresh);
         if (response.status === 200) {
           const name = response.data.user.username;
           Swal.fire({
@@ -58,7 +62,7 @@ function Login() {
             },
             // confirmButtonText: "Cool",
           });
-          navigate("/");
+          navigate("workspace");
         }
       })
       .catch(function (error) {
