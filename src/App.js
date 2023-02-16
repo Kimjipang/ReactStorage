@@ -1,29 +1,31 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import LoginVer02 from "./pages/Login";
+import ProjectPage from "./pages/ProjectPage";
 import Workspace from "./pages/Workspace";
-import Dashboard from "./pages/Dashboard";
-import NavBar from "./pages/NavBar";
+import Profile from "./pages/ProfilePage";
+import Main from "./pages/Main";
+import ProjectForm from "./components/projectForm";
+import DashBoard from "./pages/DashBoard";
+import JobPage from "./pages/JobPage";
 
-function App() {
+export default function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/projectform" element={<ProjectForm />} />
+          <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/" element={<Main />} />
+          <Route path="/workspace" element={<Workspace />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/loginver02" element={<LoginVer02 />} />
-          <Route path="/workspace" element={<Workspace />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/navbar" element={<NavBar />} />
+          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/job" element={<JobPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
-export default App;

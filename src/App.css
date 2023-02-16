@@ -1,0 +1,67 @@
+textarea {
+  width: 250px;
+  height: 400px;
+}
+
+.container {
+  text-align: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+.avatar {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 100%;
+}
+
+.profile {
+  width: 300px;
+  text-align: center;
+  padding: 1rem;
+  background-color: #ebebeb;
+  box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  -moz-box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  border-radius: 20px;
+}
+
+.new {
+  position: absolute;
+  left: 70%;
+  top: 10%;
+  background-color: aquamarine;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.csv {
+  width: 300px;
+  text-align: center;
+  padding: 1rem;
+  background-color: #ebebeb;
+  box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  -moz-box-shadow: 1px 1px 9px 5px rgba(170, 179, 170, 0.74);
+  border-radius: 20px;
+}
+
+/* body {
+  background-image: url("./image/AI02.jpeg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+} */
